@@ -26,8 +26,8 @@ public class Person {
 
 	public static void main(String[] args) {
 		Person person = new Person();
-		Method[] annotations = person.getClass().getDeclaredMethods();
-		for (Method method : annotations) {
+		Method[] methods = person.getClass().getDeclaredMethods();
+		for (Method method : methods) {
 			MyAnnotation annotation = method.getAnnotation(MyAnnotation.class);
 			if (annotation != null) {
 				System.out.println(annotation.value());
