@@ -6,8 +6,8 @@ package com.kbm.java.practise.datastructure;
  * @author keyur.mahajan
  *
  */
-public class MyStack {
-	private int[] myArray;
+public class MyStack<T> {
+	private Object[] myArray;
 	private int index = 0;
 	private int stackSize;
 
@@ -18,7 +18,7 @@ public class MyStack {
 	 */
 	public MyStack(int size) {
 		stackSize = size;
-		myArray = new int[size];
+		myArray = new Object[size];
 	}
 
 	/**
@@ -26,7 +26,7 @@ public class MyStack {
 	 * 
 	 * @param i
 	 */
-	public void push(int i) {
+	public void push(T i) {
 		if (isFull()) {
 			throw new IllegalAccessError("Stack is full");
 		}
@@ -39,11 +39,11 @@ public class MyStack {
 	 * 
 	 * @return
 	 */
-	public int pop() {
+	public T pop() {
 		if (isEmpty()) {
 			throw new IllegalAccessError("Stack is full");
 		}
-		return myArray[--index];
+		return (T) myArray[--index];
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class MyStack {
 
 	public static void main(String[] args) {
 		int size = 10;
-		MyStack stack = new MyStack(size);
+		MyStack<Integer> stack = new MyStack(size);
 		for (int i = 0; i < size; i++) {
 			stack.push(i);
 		}
