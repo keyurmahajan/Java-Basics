@@ -1,4 +1,4 @@
-package com.kbm.java.practice.sort;
+package com.kbm.java.practise.sort;
 
 import java.util.Arrays;
 

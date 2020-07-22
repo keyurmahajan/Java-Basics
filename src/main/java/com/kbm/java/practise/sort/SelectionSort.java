@@ -1,4 +1,4 @@
-package com.kbm.java.practice.sort;
+package com.kbm.java.practise.sort;
 
 /**
  * Selection Sort. Select min/max from unsorted array
