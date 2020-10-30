@@ -1,11 +1,9 @@
 package com.kbm.java.practise.concurrency;
 
 /**
- * Filename : MyLock.java
- * Class : MyLock
- * Author : keyur.mahajan
- * Date : Sep 21,2017
+ * Custom Lock implementation with out fairness
  *
+ * @author Keyur Mahajan
  */
 
 public class CustomLockExample {
@@ -16,18 +14,17 @@ public class CustomLockExample {
 	public void lock() throws InterruptedException {
 		while (isLocked) {
 			synchronized (this) {
-				wait();
+				this.wait();
 			}
 		}
 		isLocked = true;
 		currentThread = Thread.currentThread();
-
 	}
 
 	public void unlock() {
 		if (Thread.currentThread() == currentThread && isLocked) {
 			synchronized (this) {
-				notify();
+				this.notify();
 			}
 			isLocked = false;
 			currentThread = null;
@@ -43,10 +40,13 @@ public class CustomLockExample {
 			@Override
 			public void run() {
 				try {
+					System.out.println("Taking Lock " + Thread.currentThread().getName());
 					lock.lock();
-					System.out.println("I am going to take Lock " + Thread.currentThread().getName());
+					System.out.println("Taken Lock " + Thread.currentThread().getName());
+					Thread.sleep(5000);
+					System.out.println("Releasing Lock " + Thread.currentThread().getName());
 					lock.unlock();
-					System.out.println("I have released the Lock " + Thread.currentThread().getName());
+					System.out.println("Lock Released " + Thread.currentThread().getName());
 					System.out.println("-------------");
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,10 +57,16 @@ public class CustomLockExample {
 		Thread th1 = new Thread(arg0);
 		Thread th2 = new Thread(arg0);
 		Thread th3 = new Thread(arg0);
+		Thread th4 = new Thread(arg0);
+		Thread th5 = new Thread(arg0);
+		Thread th6 = new Thread(arg0);
 
 		th1.start();
 		th2.start();
 		th3.start();
+		th4.start();
+		th5.start();
+		th6.start();
 	}
 
 }
