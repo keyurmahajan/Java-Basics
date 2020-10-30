@@ -10,7 +10,7 @@ package com.kbm.java.practise.concurrency;
 public class ThreadPoolTest {
 
 	public static void main(String[] args) {
-		MyThreadPool pool = new MyThreadPool(10);
+		CustomThreadPool pool = new CustomThreadPool(10);
 
 		Runnable run = new Runnable() {
 

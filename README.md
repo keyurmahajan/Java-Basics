@@ -1,7 +1,7 @@
 # Java-Basics
 
 ## DataStructures Package
-Covers basic datastructure implementation in plain java
+Covers basic data structure implementation in plain java
 1. LinkedList
 2. Stack 
     - Using Array

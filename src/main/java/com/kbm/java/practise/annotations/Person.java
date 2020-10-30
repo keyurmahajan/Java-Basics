@@ -1,6 +1,8 @@
 package com.kbm.java.practise.annotations;
 
 import java.lang.reflect.Method;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Person {
 
@@ -26,12 +28,16 @@ public class Person {
 
 	public static void main(String[] args) {
 		Person person = new Person();
+		person.setName("ABC");
+		person.setId(1);
 		Method[] methods = person.getClass().getDeclaredMethods();
 		for (Method method : methods) {
 			MyAnnotation annotation = method.getAnnotation(MyAnnotation.class);
 			if (annotation != null) {
 				System.out.println(annotation.value());
 			}
+
 		}
+
 	}
 }
