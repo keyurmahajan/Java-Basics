@@ -21,6 +21,10 @@ Covers basics about Java Multithreading and Concurrency
 6. CustomLockExample
 7. ThreadPoolTest
 8. CustomThreadPool
+9. CustomFairLockExample
+10. CustomReadWriteLock
+11. CustomSemaphore
+12. CustomBlockingQueue
 
 ## JDBC
 Basic Example for usage of JDBC using sqlite database
